@@ -46,3 +46,15 @@ message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) +
 document.querySelector(".btn--close--cookie").addEventListener("click", function () {
   message.remove();
 });
+
+///////////////////////////////////////
+// Smooth Scrolling
+
+// learn more button
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+// section we want to scroll to when learn more button is clicked
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  section1.scrollIntoView({ behavior: "smooth" });
+});
