@@ -2,7 +2,6 @@
 
 ///////////////////////////////////////
 // Modal window
-
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
@@ -49,7 +48,6 @@ document.querySelector(".btn--close--cookie").addEventListener("click", function
 
 ///////////////////////////////////////
 // Smooth Scrolling
-
 // learn more button
 const btnScrollTo = document.querySelector(".btn--scroll-to");
 // section we want to scroll to when learn more button is clicked
@@ -61,7 +59,6 @@ btnScrollTo.addEventListener("click", function (e) {
 
 ///////////////////////////////////////
 // Page Navigation - Smooth Scrolling
-
 document.querySelector(".nav__links").addEventListener("click", function (e) {
   if (e.target.classList.contains("nav__link")) {
     e.preventDefault();
@@ -131,3 +128,24 @@ nav.addEventListener("mouseout", function (e) {
     });
   }
 });
+
+///////////////////////////////////////
+// Sticky Navigation
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}`,
+});
+headerObserver.observe(header);
