@@ -42,6 +42,7 @@ header.append(message);
 // Cookie styles
 message.style.backgroundColor = "#37383d";
 message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 30 + "px";
+message.style.width = Number.parseFloat(getComputedStyle(message).width, 10) + 60 + "px";
 document.querySelector(".btn--close--cookie").addEventListener("click", function () {
   message.remove();
 });
