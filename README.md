@@ -1,11 +1,23 @@
-# 💰 Bankist Advertisement (Coming soon!)
+# 💰 Bankist Advertisement
 
 A marketing website for a fictitious and minimalistic online banking application called <a href="https://github.com/rosajen27/bankist">Bankist</a>.
 
 
 ## Deployment
 
-Deployed Website: Coming Soon!
+Deployed Website: https://rosajen27.github.io/bankist-ad/
+
+
+Bankist Application: https://rosajen27.github.io/bankist/
+
+
+Log in credentials:
+
+- username: js | password: 1111
+- username: jd | password 2222
+
+![demo](./img/demo.png)
+
 
 
 ## Built With
