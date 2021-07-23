@@ -205,7 +205,7 @@ imgTargets.forEach(function (img) {
 });
 
 ///////////////////////////////////////
-// Testimonial Carousel
+// Testimonial Carousel -- Left & Right Buttons
 const slides = document.querySelectorAll(".slide");
 const btnLeft = document.querySelector(".slider__btn--left");
 const btnRight = document.querySelector(".slider__btn--right");
@@ -230,6 +230,9 @@ btnRight.addEventListener("click", function () {
     // currentSlide = 1: -100%, 0%, 100%, 200%
     slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
   });
+
+  activateDot(currentSlide);
+
 });
 
 btnLeft.addEventListener("click", function () {
@@ -243,4 +246,42 @@ btnLeft.addEventListener("click", function () {
     // currentSlide = 1: -100%, 0%, 100%, 200%
     slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
   });
+
+  activateDot(currentSlide);
+
+});
+
+///////////////////////////////////////
+// Testimonial Carousel -- Dots
+const dotContainer = document.querySelector(".dots");
+
+const createDots = function () {
+  // create a dot element for each slide
+  slides.forEach(function (slide, index) {
+    dotContainer.insertAdjacentHTML("beforeend", `<button class="dots__dot" data-slide="${index}"></button>`);
+  });
+};
+createDots();
+
+// darken color of active dot
+const activateDot = function (slide) {
+  document.querySelectorAll(".dots__dot").forEach(function (dot) {
+    dot.classList.remove("dots__dot--active");
+
+    // activate dot based on data-slide attribute
+    document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add("dots__dot--active");
+  });
+};
+activateDot(0);
+
+dotContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const slideNum = e.target.dataset.slide;
+
+    slides.forEach(function (slide, index) {
+      slide.style.transform = `translateX(${100 * (index - slideNum)}%)`;
+    });
+
+    activateDot(slideNum);
+  }
 });
